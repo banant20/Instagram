@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>insta485</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <div class="centerPage">
+    <header>
+        <div class="headerGrid">
+            <a class="blackText" href="/">
+                <h1>
+                    <!-- <img class="instaLogo" alt="Insta Logo" src="/images/logo.png"> -->
+                    <span class="vdivider"></span>Insta485
+                </h1>
+            </a>
+            <p class="topr">
+                <a class="blackText" href="/explore/"> explore</a>
+                <span class="toprdiv"></span>
+                <a class="blackText" href="/users/{{logname}}/"> {{logname}}</a>
+            </p>
+        </div>
+    </header>
+    <div class="hdivider"></div>
+
+    <h1> {{ username }} </h1>
+    {% if username != logname%}
+        {% if logname_follows_username%}
+        <p>following</p>
+        <!-- Unfollow Button -->
+        <form action="/following/?target=/users/{{username}}/" method="post" enctype="multipart/form-data">
+            <input type="submit" name="unfollow" value="unfollow"/>
+            <input type="hidden" name="username" value="{{username}}"/>
+            <input type="hidden" name="operation" value="unfollow"/>
+        </form>
+        {% else %}
+        <p>not following</p>
+        <!-- Follow Button -->
+        <form action="/following/?target=/users/{{username}}/" method="post" enctype="multipart/form-data">
+            <input type="submit" name="follow" value="follow"/>
+            <input type="hidden" name="username" value="{{username}}"/>
+            <input type="hidden" name="operation" value="follow"/>
+        </form>
+        {% endif %}
+    {%else%}
+    <!-- Upload New Post-->
+    <form action="/posts/?target=/users/{{username}}/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required/>
+        <input type="submit" name="create_post" value="upload new post"/>
+        <input type="hidden" name="operation" value="create"/>
+      </form>
+      <!-- Edit Profile-->
+    <a href="/accounts/edit/"> Edit profile</a>
+    <!--  Logout Button-->
+    <form action="/accounts/logout/" method="post" enctype="multipart/form-data">
+        <input type="submit" name="logout" value="Logout"/>
+    </form>
+    {% endif %}
+
+    <p>
+        {% if num_posts == 1%}
+            {{num_posts}} post
+        {% else %}
+            {{num_posts}} posts
+        {% endif %}
+        <a href="/users/{{username}}/followers/">
+            {% if num_followers == 1 %}
+                {{num_followers}} follower
+            {% else %}
+                {{num_followers}} followers
+            {% endif %}
+        </a>
+        <a href="/users/{{username}}/following/">
+            {{num_following}} following
+        </a>
+    </p>
+    {%for user in users%}
+    <p>{{ user.fullname }}</p>
+    <img src = '/uploads/{{user.filename}}' alt = "no image found" style="height: 150px; width: 150px;">
+    {%endfor%}
+    <div>
+        {% for post in posts %}
+            <a href="/posts/{{post.postid}}/"><img src= "/uploads/{{post.filename}}" alt="single post" width="450" height="400"></a>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

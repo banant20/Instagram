@@ -1,0 +1,25 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 18.218.79.126...
+* TCP_NODELAY set
+* Connected to ec2-18-218-79-126.us-east-2.compute.amazonaws.com (18.218.79.126) port 80 (#0)
+> GET /static/js/bundle.js HTTP/1.1
+> Host: ec2-18-218-79-126.us-east-2.compute.amazonaws.com
+> User-Agent: curl/7.64.1
+> Accept: */*
+> Cookie: login=eyJ1c2VybmFtZSI6ImF3ZGVvcmlvIn0.Y0xdzw.kRMQNHb0iaA9EqdQq7vvtaEddj4
+> 
+< HTTP/1.1 200 OK
+< Server: nginx/1.18.0 (Ubuntu)
+< Date: Sun, 16 Oct 2022 19:42:15 GMT
+< Content-Type: text/javascript; charset=utf-8
+< Content-Length: 679016
+< Connection: keep-alive
+< Content-Disposition: inline; filename=bundle.js
+< Last-Modified: Sun, 16 Oct 2022 19:25:40 GMT
+< Cache-Control: no-cache
+< 
+{ [1147 bytes data]
+100  663k  100  663k    0     0  2570k      0 --:--:-- --:--:-- --:--:-- 2570k
+* Connection #0 to host ec2-18-218-79-126.us-east-2.compute.amazonaws.com left intact
+* Closing connection 0

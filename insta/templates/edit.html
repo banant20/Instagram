@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>insta485</title>
+    <style>
+        .topr {
+            text-align: right;
+            padding-top: 15px;
+            padding-right: 15px;
+        }
+        
+        .blackText {
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+        }
+        
+        .black {
+            color: black;
+            text-decoration: none;
+            width: 1000px;
+        }
+        
+        .grayText {
+            text-decoration: none;
+            color: gray;
+        }
+        
+        .headerGrid {
+            display: grid;
+            grid-template-columns: auto auto 15px;
+        }
+        
+        .instaPost {
+            margin-bottom: 15px;
+            width: 500px;
+            border: 1px solid gray;
+        }
+        
+        .vdivider {
+            height: 20px;
+            padding-left: 20px;
+            border-left: 2px solid gray;
+        }
+        
+        .toprdiv {
+            height: 20px;
+            padding-left: 5px;
+            border-left: 2px solid gray;
+        }
+        
+        .hdivider {
+            padding-top: 60px;
+            border-top: 2px solid gray;
+        }
+        
+        .instaLogo {
+            vertical-align: bottom;
+            padding-right: 18px;
+            padding-left: 10px;
+            height: 35px;
+            width: 35px;
+        }
+        
+        .instaPost {
+            width: 550px;
+            border: 2px solid gray;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .postContainer {
+            display: grid;
+            grid-template-columns: 50px auto auto;
+        }
+        
+        .username {
+            color: black;
+            font-weight: bold;
+        }
+        
+        .profpic {
+            width: 40px;
+            height: 40px;
+            padding-top: 10px;
+            padding-bottom: 13px;
+            padding-left: 13px;
+        }
+        
+        .timestamp {
+            padding-right: 12px;
+            text-align: right;
+            color: gray;
+            text-decoration: none;
+        }
+        
+        .profilePhotos{
+            height:275px;
+            width: 375px;
+            padding-right: 20px;
+        }
+        
+        .middle {
+            width: 550px;
+        }
+        
+        .comments {
+            padding-left: 7px;
+        }
+        
+        .centerPage {
+            max-width:1500px;
+            margin:auto;
+        }
+        
+    </style>    
+</head>
+
+<body>
+    <div class="centerPage">
+        <header>
+            <div class="headerGrid">
+                <a class="blackText" href="/">
+                    <h1>
+                        <!-- <img class="instaLogo" alt="Insta Logo" src="/images/logo.png"> -->
+                        <span class="vdivider"></span>Insta485
+                    </h1>
+                </a>
+                <p class="topr">
+                    <a class="blackText" href="/explore/"> explore</a>
+                    <span class="toprdiv"></span>
+                    <a class="blackText" href="/users/{{logname}}/"> {{logname}}</a>
+                </p>
+            </div>
+        </header>
+        <div class="hdivider"></div>
+
+    <!-- DO NOT CHANGE THIS (aside from where we say 'FIXME') -->
+{%for user in users%}
+<div>
+    <img src = "/uploads/{{user.filename}}" alt="no image">
+    <p>{{user.username}}</p>
+</div>
+<form action="/accounts/?target=/accounts/edit/" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept="image/*"/>
+    <input type="text" name="fullname" value="{{user.fullname}}" required/>
+    <input type="text" name="email" value="{{user.email}}" required/>
+    <input type="submit" name="update" value="submit"/>
+    <input type="hidden" name="operation" value="edit_account"/>
+  </form>
+{%endfor%}
+    <a class = "blackText" href = "/accounts/password/">  <b> Change Password </b> </a>
+    <a class = "blackText" href = "/accounts/delete/">  <b> Delete Account </b> </a>
+</div>
+</body>
+</html>

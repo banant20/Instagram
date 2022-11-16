@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+<title>insta485</title>
+</head> 
+
+<body>
+  <div class="centerPage">
+    <header>
+        <div class="headerGrid">
+            <a class="blackText" href="/">
+                <h1>
+                    <!-- <img class="instaLogo" alt="Insta Logo" src="/uploads/instalogo.png" height="80" width="80"> -->
+                    <span class="vdivider"></span>Insta485
+                </h1>
+            </a>
+            <p class="topr">
+                <a class="blackText" href="/accounts/login/"> login</a>
+            </p>
+        </div>
+    </header>
+    <div class="hdivider"></div>
+
+	<!-- DO NOT CHANGE THIS (aside from styling) -->
+<form action="/accounts/?target =/" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required/>
+    <div>fullname</div>
+    <input type="text" name='fullname' required/>
+    <div>username</div>
+    <input type="text" name='username' required/>
+    <div>email</div>
+    <input type="text" name="email" required/>
+    <div>password</div>
+    <input type="password" name="password" required/>
+    <input type="submit" name="signup" value="sign up"/>
+    <input type="hidden" name="operation" value="create"/>
+  </form>
+
+  <a class = "blackText" href = "/accounts/login/"> Have an account? <b> Log in </b> </a>
+</body>
+</html>  

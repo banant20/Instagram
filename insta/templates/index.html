@@ -1,0 +1,69 @@
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<body>
+  <h1>Users</h1>
+  {% for user in users %}
+  <p>{{user.username}} {{user.fullname}}</p>
+  {% endfor %} 
+  <h2>Posts</h2>
+  {%for post in posts %}
+  <p>{{post.owner}}</p>
+  <p>{{post.postid}}</p>
+  <img src="/uploads/{{ post.filename }}" alt = "no image found">
+  <p>{{post.count}} likes</p>
+  <p>{{post.likes}}</p>
+    {%for comment in post.comments %}
+        <p>{{comment}}</p>
+    {%endfor%}
+  {%endfor%}
+</body>
+</html>   -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>insta485</title>
+<style>
+    
+a.logo {float:left;color:blue;}
+span.title{margin-left:100px;}
+a.user{float:right;margin-right: 10px;}
+a.explore{float:right;color:green;margin-right:10px;}
+.post1{
+    margin:auto; width:400px; height:auto; margin-bottom:100px;}
+.postheader{padding:10px; display:inline-flex;}
+.post2{
+    margin:auto; width:400px; height:auto; margin-bottom:100px;}
+
+.post3{
+    margin:auto; width:400px; height:auto; margin-bottom:100px;}
+.time{margin-left:20px;}
+
+</style>
+</head>
+
+<body>
+    
+    <div id = "parent">
+        <div id ="children"> 
+            <a href="/" class="logo">
+                
+                logo
+                
+            </a>
+            <span class= "title" >Insta485</span>
+            <a href="/explore/" class="explore">explore </a>
+            <a href="/users/{{ logname }}/" class="user">{{ logname }}</a>
+            
+        </div>
+    
+
+    <div id="reactEntry">
+        Loading ...
+    </div>
+    <!-- Load JavaScript -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bundle.js') }}"></script>
+    
+</body> 
+</html>  

@@ -1,0 +1,23 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 18.218.79.126...
+* TCP_NODELAY set
+* Connected to ec2-18-218-79-126.us-east-2.compute.amazonaws.com (18.218.79.126) port 80 (#0)
+> GET / HTTP/1.1
+> Host: ec2-18-218-79-126.us-east-2.compute.amazonaws.com
+> User-Agent: curl/7.64.1
+> Accept: */*
+> Cookie: login=eyJ1c2VybmFtZSI6ImF3ZGVvcmlvIn0.Y0xdzw.kRMQNHb0iaA9EqdQq7vvtaEddj4
+> 
+< HTTP/1.1 200 OK
+< Server: nginx/1.18.0 (Ubuntu)
+< Date: Sun, 16 Oct 2022 19:41:24 GMT
+< Content-Type: text/html; charset=utf-8
+< Content-Length: 3704
+< Connection: keep-alive
+< Vary: Cookie
+< 
+{ [3704 bytes data]
+100  3704  100  3704    0     0  15965      0 --:--:-- --:--:-- --:--:-- 15965
+* Connection #0 to host ec2-18-218-79-126.us-east-2.compute.amazonaws.com left intact
+* Closing connection 0

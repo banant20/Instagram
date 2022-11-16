@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+# Stop on errors, print commands
+set -Eeuo pipefail
+set -x
+
+./bin/insta485db destroy 
+./bin/insta485db create 
+
+test -e var/insta485.sqlite3
+export FLASK_ENV=development
+FLASK_ENV=development
+export FLASK_APP=insta485
+FLASK_APP=insta485
+flask run --host 0.0.0.0 --port 8000

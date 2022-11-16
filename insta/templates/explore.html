@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>insta485</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <div class="centerPage">
+    <header>
+        <div class="headerGrid">
+            <a class="blackText" href="/">
+                <h1>
+                    <!-- <img class="instaLogo" alt="Insta Logo" src="/images/logo.png"> -->
+                    <span class="vdivider"></span>Insta485
+                </h1>
+            </a>
+            <p class="topr">
+                <a class="blackText" href="/explore/"> explore</a>
+                <span class="toprdiv"></span>
+                <a class="blackText" href="/users/{{logname}}/"> {{logname}}</a>
+            </p>
+        </div>
+    </header>
+    <div class="hdivider"></div>
+
+    <h1><b>Discover People</b></h1>
+    {% for user in users %}
+    <div class="template">
+        <img src="/uploads/{{user.filename}}" alt="{{user.username}}" style="height: 100px; width: 100px;">
+        <h2><a href="/users/{{user.username}}/">{{user.username}}</a></h2>
+    </div>
+    <!-- DO NOT CHANGE THIS (aside from where we say 'FIXME') -->
+   
+    <form action="/following/?target=/explore/" method="post" enctype="multipart/form-data">
+        <input type="submit" name="follow" value="follow"/>
+        <input type="hidden" name="username" value="{{user.username}}"/>
+        <input type="hidden" name="operation" value="follow"/>
+    </form>
+    {% endfor %}
+    </div>
+</body>
+</html>
